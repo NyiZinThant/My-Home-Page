@@ -8,15 +8,20 @@ import SearchInput from '../components/SearchInput';
 import AnimatedCard from '../components/AnimatedCard';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import Card from '../components/Card';
+import Modal from '../components/Modal';
 
 export default function Search() {
-  const items = [
+  const [isMOpen, setisMOpen] = useState(false);
+  const toggleModal = () => setisMOpen(!isMOpen);
+  const closeModal = () => setisMOpen(false);
+  const [items, setItems] = useState([
     {
       image: github,
       name: 'GitHub',
       url: 'https://github.com/search?q=',
       symbol: '+',
       isIcon: false,
+      status: true,
     },
     {
       image: linkedin,
@@ -24,6 +29,7 @@ export default function Search() {
       url: 'https://www.linkedin.com/search/results/all/?keywords=',
       symbol: '%20',
       isIcon: false,
+      status: true,
     },
     {
       image: youtube,
@@ -31,6 +37,7 @@ export default function Search() {
       url: 'https://www.youtube.com/results?search_query=',
       symbol: '+',
       isIcon: false,
+      status: true,
     },
     {
       image: facebook,
@@ -38,6 +45,7 @@ export default function Search() {
       url: 'https://www.facebook.com/search/top/?q=',
       symbol: '%20',
       isIcon: false,
+      status: false,
     },
     {
       image: google,
@@ -45,13 +53,22 @@ export default function Search() {
       url: 'https://www.google.com/search?q=',
       symbol: '+',
       isIcon: false,
+      status: false,
     },
     {
       icon: faPlus,
       name: 'add',
       isIcon: true,
+      status: true,
     },
-  ];
+  ]);
+  const toggleItem = (item) =>
+    setItems(
+      items.map((i) => {
+        if (i.name === item) i.status = !i.status;
+        return i;
+      })
+    );
   const [cItem, setCItem] = useState({
     image: google,
     name: 'Google',
@@ -69,10 +86,11 @@ export default function Search() {
       content.push(
         <div className="flex gap-5 justify-items-center" key={i}>
           {items
+            .filter((item) => item.status)
             .slice(i * cardPerRow, (i + 1) * cardPerRow)
             .map((item, index) => {
               return item.isIcon ? (
-                <Card key={index} item={item} />
+                <Card key={index} item={item} toggleModal={toggleModal} />
               ) : (
                 <AnimatedCard
                   key={index}
@@ -92,6 +110,14 @@ export default function Search() {
     <div className="flex flex-col gap-5">
       <SearchInput currentItem={cItem} />
       {renderCards()}
+      {isMOpen && (
+        <Modal
+          items={items.filter((item) => !item.isIcon)}
+          toggleItem={toggleItem}
+          toggleModal={toggleModal}
+          closeModal={closeModal}
+        />
+      )}
     </div>
   );
 }

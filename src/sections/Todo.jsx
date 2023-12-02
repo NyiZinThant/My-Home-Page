@@ -26,7 +26,7 @@ export default function Todo() {
     },
     {
       id: 4,
-      subject: 'sleep',
+      subject: 'sleepdkfkdfjdkjfkjdkfjdkfjkdjfkdfjdddd',
       status: false,
     },
   ]);
@@ -46,9 +46,9 @@ export default function Todo() {
     setTodos(() => [...todos, { id, subject, status: false }]);
   };
   return (
-    <div className="flex flex-col w-auto">
+    <div className="flex flex-col w-auto gap-2">
       <div className=" max-h-64 overflow-y-scroll no-scrollbar">
-        <ul className="flex flex-col ">
+        <ul className="flex flex-col gap-2">
           {todos.map((todo) => (
             <TodoList
               todo={todo}

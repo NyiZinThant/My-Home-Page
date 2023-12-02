@@ -6,7 +6,7 @@ export default function TodoInput({ addTodo }) {
   const [count, setCount] = useState(0);
   return (
     <form
-      className="border-b-4 border-b-white p-2 rounded-2xl flex justify-between items-center"
+      className="border-2 border-b-white p-2 rounded-lg flex justify-between items-center"
       onSubmit={(e) => {
         e.preventDefault();
         const todo = todoRef.current.value.trim();
