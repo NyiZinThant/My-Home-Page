@@ -8,7 +8,7 @@ import SearchInput from '../components/SearchInput';
 import AnimatedCard from '../components/AnimatedCard';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import Card from '../components/Card';
-import Modal from '../components/Modal';
+import ItemModal from '../components/ItemModal';
 
 export default function Search() {
   const [isMOpen, setisMOpen] = useState(false);
@@ -111,7 +111,7 @@ export default function Search() {
       <SearchInput currentItem={cItem} />
       {renderCards()}
       {isMOpen && (
-        <Modal
+        <ItemModal
           items={items.filter((item) => !item.isIcon)}
           toggleItem={toggleItem}
           toggleModal={toggleModal}

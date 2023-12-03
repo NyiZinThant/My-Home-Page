@@ -26,7 +26,7 @@ export default function Todo() {
     },
     {
       id: 4,
-      subject: 'sleepdkfkdfjdkjfkjdkfjdkfjkdjfkdfjdddd',
+      subject: 'sleep',
       status: false,
     },
   ]);
