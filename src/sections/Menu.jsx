@@ -2,6 +2,7 @@ import { faFolder, faL, faPlus } from '@fortawesome/free-solid-svg-icons';
 import Button from '../components/Button';
 import Item from '../components/Item';
 import AddItem from '../components/AddItem';
+import AppModal from '../components/AppModal';
 import { useState } from 'react';
 import github from '../assets/github-icon-2048x1988-jzvzcf2t.png';
 import linkedin from '../assets/LinkedIn_logo_initials.png';
@@ -13,6 +14,9 @@ export default function Menu() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const togglePopup = () => setIsPopupOpen(!isPopupOpen);
   const closePopup = () => setIsPopupOpen(false);
+  const [isMOpen, setisMOpen] = useState(false);
+  const toggleModal = () => setisMOpen(!isMOpen);
+  const closeModal = () => setisMOpen(false);
   const [apps, setApps] = useState([
     {
       image: github,
@@ -68,9 +72,9 @@ export default function Menu() {
             .slice(i * appPerRow, (i + 1) * appPerRow)
             .map((app, index) => {
               return app.isIcon ? (
-                <AddItem app={app} key={index} />
+                <AddItem app={app} key={index} toggleModal={toggleModal} />
               ) : (
-                <Item app={app} key={index} />
+                <Item app={app} key={index} toggleModal={toggleModal} />
               );
             })}
         </div>
@@ -84,12 +88,21 @@ export default function Menu() {
   };
   const menuRef = useDetectClickOutside({ onTriggered: closePopup });
   return (
-    <div className="md:flex relative hidden justify-end w-1/4" ref={menuRef}>
-      <div className="flex items-center gap-2">
-        <p className="text-white">More Apps!</p>
-        <Button icon={faFolder} togglePopup={togglePopup} />
+    <>
+      <div className="md:flex relative hidden justify-end w-1/4" ref={menuRef}>
+        <div className="flex items-center gap-2">
+          <p className="text-white">More Apps!</p>
+          <Button icon={faFolder} togglePopup={togglePopup} />
+        </div>
+        {isPopupOpen ? renderApps() : ''}
       </div>
-      {isPopupOpen ? renderApps() : ''}
-    </div>
+      {isMOpen && (
+        <AppModal
+          apps={apps.filter((app) => !app.isIcon)}
+          toggleModal={toggleModal}
+          closeModal={closeModal}
+        />
+      )}
+    </>
   );
 }

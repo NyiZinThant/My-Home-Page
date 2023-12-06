@@ -59,7 +59,6 @@ export default function Todo() {
           ))}
         </ul>
       </div>
-
       <TodoInput addTodo={addTodo} />
     </div>
   );

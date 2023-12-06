@@ -78,6 +78,7 @@ export default function Search() {
   const changeCurrent = (item) => {
     setCItem(item);
   };
+  // render 5 cards per row
   const renderCards = function () {
     const cardPerRow = 5;
     const numRows = Math.ceil(items.length / cardPerRow);
@@ -107,9 +108,11 @@ export default function Search() {
     );
   };
   return (
-    <div className="flex flex-col gap-5">
-      <SearchInput currentItem={cItem} />
-      {renderCards()}
+    <>
+      <div className="flex flex-col gap-5">
+        <SearchInput currentItem={cItem} />
+        {renderCards()}
+      </div>
       {isMOpen && (
         <ItemModal
           items={items.filter((item) => !item.isIcon)}
@@ -118,6 +121,6 @@ export default function Search() {
           closeModal={closeModal}
         />
       )}
-    </div>
+    </>
   );
 }
