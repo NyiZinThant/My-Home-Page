@@ -60,6 +60,12 @@ export default function Menu() {
       status: true,
     },
   ]);
+  const removeItem = (name) =>
+    setApps(
+      apps.filter((app) => {
+        if (app.name !== name) return app;
+      })
+    );
   const renderApps = function () {
     const appPerRow = 3;
     const numRows = Math.ceil(apps.length / appPerRow);
@@ -101,6 +107,7 @@ export default function Menu() {
           apps={apps.filter((app) => !app.isIcon)}
           toggleModal={toggleModal}
           closeModal={closeModal}
+          removeItem={removeItem}
         />
       )}
     </>

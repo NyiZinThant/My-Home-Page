@@ -14,7 +14,7 @@ export default function Modal({ toggleModal, closeModal, children }) {
         {children}
         <div className="flex justify-end">
           <button
-            className="p-2 bg-white rounded-lg flex justify-center items-center hover:bg-gray-400 font-bold"
+            className="p-2 mt-4 bg-white rounded-lg flex justify-center items-center hover:bg-gray-400 font-bold"
             onClick={() => toggleModal()}
           >
             Close

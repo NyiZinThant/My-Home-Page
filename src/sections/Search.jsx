@@ -113,7 +113,7 @@ export default function Search() {
         <SearchInput currentItem={cItem} />
         {renderCards()}
       </div>
-      {isMOpen && (
+      {isMOpen && items.length !== 0 && (
         <ItemModal
           items={items.filter((item) => !item.isIcon)}
           toggleItem={toggleItem}
