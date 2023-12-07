@@ -17,13 +17,11 @@ export default function ItemModal({
       closeModal={closeModal}
       children={
         <>
-          {avaliableItems.length > 0 ? (
+          {avaliableItems.length > 0 && (
             <div className="flex items-center gap-2">
               <p className="text-white">Avaliable Items</p>
               <span className="border-b-2 w-max flex-grow h-0"></span>
             </div>
-          ) : (
-            ''
           )}
           <div className="flex gap-4">
             {avaliableItems.map((item, index) => {
@@ -43,13 +41,11 @@ export default function ItemModal({
               );
             })}
           </div>
-          {unavaliableItems.length > 0 ? (
+          {unavaliableItems.length > 0 && (
             <div className="flex items-center gap-2">
               <p className="text-white">Unavaliable Items</p>
               <span className="border-b-2 w-max flex-grow h-0"></span>
             </div>
-          ) : (
-            ''
           )}
           <div className="flex gap-4">
             {unavaliableItems.map((item, index) => {

@@ -11,9 +11,9 @@ import Card from '../components/Card';
 import ItemModal from '../components/ItemModal';
 
 export default function Search() {
-  const [isMOpen, setisMOpen] = useState(false);
-  const toggleModal = () => setisMOpen(!isMOpen);
-  const closeModal = () => setisMOpen(false);
+  const [isMOpen, setIsMOpen] = useState(false);
+  const toggleModal = () => setIsMOpen(!isMOpen);
+  const closeModal = () => setIsMOpen(false);
   const [items, setItems] = useState([
     {
       image: github,

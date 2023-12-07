@@ -15,13 +15,11 @@ export default function AppModal({
       closeModal={closeModal}
       children={
         <>
-          {apps.length > 0 ? (
+          {apps.length > 0 && (
             <div className="flex items-center gap-4">
               <p className="text-white">Avaliable Apps</p>
               <span className="border-b-2 w-max flex-grow h-0"></span>
             </div>
-          ) : (
-            ''
           )}
           <div className="flex gap-4">
             {apps.map((app, index) => (

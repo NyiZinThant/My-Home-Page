@@ -14,9 +14,9 @@ export default function Menu() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const togglePopup = () => setIsPopupOpen(!isPopupOpen);
   const closePopup = () => setIsPopupOpen(false);
-  const [isMOpen, setisMOpen] = useState(false);
-  const toggleModal = () => setisMOpen(!isMOpen);
-  const closeModal = () => setisMOpen(false);
+  const [isMOpen, setIsMOpen] = useState(false);
+  const toggleModal = () => setIsMOpen(!isMOpen);
+  const closeModal = () => setIsMOpen(false);
   const [apps, setApps] = useState([
     {
       image: github,
@@ -100,7 +100,7 @@ export default function Menu() {
           <p className="text-white">More Apps!</p>
           <Button icon={faFolder} togglePopup={togglePopup} />
         </div>
-        {isPopupOpen ? renderApps() : ''}
+        {isPopupOpen && renderApps()}
       </div>
       {isMOpen && (
         <AppModal
