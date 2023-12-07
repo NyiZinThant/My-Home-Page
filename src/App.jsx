@@ -20,17 +20,8 @@ function App() {
       <div className="flex md:justify-between md:items-end justify-center mb-9 px-9 w-full">
         <Customize />
         <Customize />
-        <div className="flex flex-col gap-2 items-end w-1/3">
-          <button
-            className="text-white font-bold flex items-center border-2 p-2 rounded-lg uppercase gap-2 w-fit"
-            onClick={() => toggleList()}
-          >
-            <p>To-do List</p>
-            <FontAwesomeIcon icon={faPaperclip} />
-          </button>
-          {isListOpen && <Todo />}
-        </div>
-        {/* <Todo /> */}
+
+        <Todo />
       </div>
     </div>
   );
