@@ -59,7 +59,7 @@ export default function Todo() {
       </button>
       {isListOpen && (
         <div className="flex flex-col w-auto gap-2">
-          <div className=" max-h-64 overflow-y-scroll no-scrollbar">
+          <div className=" max-h-64 overflow-y-scroll scrollbar-thin scrollbar-track-transparent scrollbar-thumb-white scrollbar-thumb-rounded-full scrollbar-track-rounded-full">
             <ul className="flex flex-col gap-2">
               {todos.map((todo) => (
                 <TodoList

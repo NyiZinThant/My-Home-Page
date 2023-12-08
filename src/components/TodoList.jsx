@@ -5,7 +5,7 @@ export default function TodoList({ todo, deleteTodo, toggleTodo }) {
     ? 'line-through hover:no-underline '
     : 'hover:line-through';
   return (
-    <li className="text-white border-2 p-2 rounded-lg  flex justify-between items-center w-80 overflow-y-scroll no-scrollbar">
+    <li className="text-white border-2 p-2 rounded-lg  flex justify-between items-center w-80 overflow-y-scroll no-scrollbar mr-2">
       <p
         className={`cursor-pointer ${listStyle} break-words w-60`}
         onClick={() => toggleTodo(todo.id)}

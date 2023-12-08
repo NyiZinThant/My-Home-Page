@@ -1,4 +1,9 @@
-import { faFolder, faL, faPlus } from '@fortawesome/free-solid-svg-icons';
+import {
+  faFolder,
+  faL,
+  faPenToSquare,
+  faPlus,
+} from '@fortawesome/free-solid-svg-icons';
 import Button from '../components/Button';
 import Item from '../components/Item';
 import AddItem from '../components/AddItem';
@@ -54,8 +59,8 @@ export default function Menu() {
       status: false,
     },
     {
-      icon: faPlus,
-      name: 'Add',
+      icon: faPenToSquare,
+      name: 'edit',
       isIcon: true,
       status: true,
     },
