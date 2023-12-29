@@ -11,3 +11,7 @@
     scrollbar-width: none;
   }
 }
+
+::-webkit-scrollbar-button {
+  background-color: transparent;
+}

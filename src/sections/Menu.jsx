@@ -28,41 +28,35 @@ export default function Menu() {
       name: 'GitHub',
       url: 'https://github.com/',
       isIcon: false,
-      status: true,
     },
     {
       image: linkedin,
       name: 'Linkedin',
       url: 'https://www.linkedin.com',
       isIcon: false,
-      status: true,
     },
     {
       image: youtube,
       name: 'YouTube',
       url: 'https://www.youtube.com/',
       isIcon: false,
-      status: false,
     },
     {
       image: facebook,
       name: 'Facebook',
       url: 'https://www.facebook.com/',
       isIcon: false,
-      status: true,
     },
     {
       image: google,
       name: 'Google',
       url: 'https://www.google.com/',
       isIcon: false,
-      status: false,
     },
     {
       icon: faPenToSquare,
       name: 'edit',
       isIcon: true,
-      status: true,
     },
   ]);
   const removeItem = (name) =>
@@ -78,16 +72,13 @@ export default function Menu() {
     for (let i = 0; i < numRows; i++) {
       content.push(
         <div className="flex gap-5 justify-items-center" key={i}>
-          {apps
-            .filter((app) => app.status)
-            .slice(i * appPerRow, (i + 1) * appPerRow)
-            .map((app, index) => {
-              return app.isIcon ? (
-                <AddItem app={app} key={index} toggleModal={toggleModal} />
-              ) : (
-                <Item app={app} key={index} toggleModal={toggleModal} />
-              );
-            })}
+          {apps.slice(i * appPerRow, (i + 1) * appPerRow).map((app, index) => {
+            return app.isIcon ? (
+              <AddItem app={app} key={index} toggleModal={toggleModal} />
+            ) : (
+              <Item app={app} key={index} toggleModal={toggleModal} />
+            );
+          })}
         </div>
       );
     }

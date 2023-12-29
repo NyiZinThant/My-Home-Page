@@ -3,17 +3,11 @@ import Card from './Card';
 import { faCheck, faXmark } from '@fortawesome/free-solid-svg-icons';
 import Modal from './Modal';
 
-export default function ItemModal({
-  items,
-  toggleItem,
-  toggleModal,
-  closeModal,
-}) {
+export default function ItemModal({ items, toggleItem, closeModal }) {
   const avaliableItems = items.filter((item) => item.status);
   const unavaliableItems = items.filter((item) => !item.status);
   return (
     <Modal
-      toggleModal={toggleModal}
       closeModal={closeModal}
       children={
         <>
@@ -23,7 +17,7 @@ export default function ItemModal({
               <span className="border-b-2 w-max flex-grow h-0"></span>
             </div>
           )}
-          <div className="flex gap-4">
+          <div className="flex gap-4 flex-wrap">
             {avaliableItems.map((item, index) => {
               return (
                 <div className="relative" key={index}>
@@ -47,7 +41,7 @@ export default function ItemModal({
               <span className="border-b-2 w-max flex-grow h-0"></span>
             </div>
           )}
-          <div className="flex gap-4">
+          <div className="flex gap-4 flex-wrap">
             {unavaliableItems.map((item, index) => {
               return (
                 <div className="relative" key={index}>
