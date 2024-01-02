@@ -4,6 +4,7 @@ import Modal from './Modal';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import preview from '../assets/preview.png';
 import { useRef, useState } from 'react';
+import { fetchIcon } from '../libs/fetcher';
 export default function AppModal({ apps, closeModal, removeItem, addApp }) {
   const [nameError, setNameError] = useState();
   const [urlError, setUrlError] = useState();
@@ -54,7 +55,7 @@ export default function AppModal({ apps, closeModal, removeItem, addApp }) {
                 setNameError();
                 return setUrlError('Url is empty');
               }
-              if (imgRef.current.value.length === 0) {
+              if (previewImg.preview === undefined) {
                 setNameError();
                 setUrlError();
                 return setImgError('No image found');
@@ -115,7 +116,13 @@ export default function AppModal({ apps, closeModal, removeItem, addApp }) {
               <button
                 className="p-2 font-bold bg-white rounded-lg hover:bg-gray-400"
                 type="button"
-                onClick={() => {}}
+                onClick={() => {
+                  setPreviewImg({
+                    preview: 'https://icon.horse/icon/github.com',
+                    raw: 'https://icon.horse/icon/example.com',
+                  });
+                  setImgError();
+                }}
               >
                 Load Image Online
               </button>

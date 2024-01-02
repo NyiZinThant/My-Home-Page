@@ -1,6 +1,7 @@
 import Clock from './sections/Clock';
 import Customize from './sections/Customize';
 import Menu from './sections/Menu';
+import Quote from './sections/Quote';
 import Search from './sections/Search';
 import Todo from './sections/Todo';
 function App() {
@@ -13,7 +14,7 @@ function App() {
       </div>
       <div className="flex md:justify-between md:items-end justify-center mb-9 px-9 w-full">
         <Customize />
-        <Customize />
+        <Quote />
         <Todo />
       </div>
     </div>

@@ -13,3 +13,11 @@ export async function fetchIcon(url) {
     )
     .then((icons) => icons.forEach((icon) => console.log(icon)));
 }
+export async function fetchQuote(tags = []) {
+  const res = await fetch(
+    'https://api.quotable.io/quotes/random?tags=' + tags.join(',')
+  );
+  const quote = await res.json();
+  const { content, author } = quote[0];
+  return { content, author };
+}
