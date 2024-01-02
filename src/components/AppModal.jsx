@@ -4,7 +4,7 @@ import Modal from './Modal';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import preview from '../assets/preview.png';
 import { useRef, useState } from 'react';
-export default function AppModal({ apps, closeModal, removeItem }) {
+export default function AppModal({ apps, closeModal, removeItem, addApp }) {
   const [nameError, setNameError] = useState();
   const [urlError, setUrlError] = useState();
   const [imgError, setImgError] = useState();
@@ -59,6 +59,13 @@ export default function AppModal({ apps, closeModal, removeItem }) {
                 setUrlError();
                 return setImgError('No image found');
               }
+              setImgError();
+              addApp({
+                image: previewImg.preview,
+                name: nameRef.current.value.trim(),
+                url: urlRef.current.value,
+                isIcon: false,
+              });
             }}
           >
             <div className="flex gap-2 flex-col">

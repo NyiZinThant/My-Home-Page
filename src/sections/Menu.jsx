@@ -1,9 +1,4 @@
-import {
-  faFolder,
-  faL,
-  faPenToSquare,
-  faPlus,
-} from '@fortawesome/free-solid-svg-icons';
+import { faFolder, faPenToSquare } from '@fortawesome/free-solid-svg-icons';
 import Button from '../components/Button';
 import Item from '../components/Item';
 import AddItem from '../components/AddItem';
@@ -59,6 +54,9 @@ export default function Menu() {
       isIcon: true,
     },
   ]);
+  const addApp = (app) => {
+    setApps([...apps, app]);
+  };
   const removeItem = (name) =>
     setApps(
       apps.filter((app) => {
@@ -104,6 +102,7 @@ export default function Menu() {
           toggleModal={toggleModal}
           closeModal={closeModal}
           removeItem={removeItem}
+          addApp={addApp}
         />
       )}
     </>

@@ -12,12 +12,10 @@ export default function Modal({ closeModal, children }) {
       }}
       ref={modalRef}
     >
-      <div className="relative w-1/3 h-full flex items-center justify-center">
-        <div className="border-2 rounded-2xl bg-gray-900 p-9 flex flex-col gap-2 max-h-[70%] z-40 overflow-y-scroll scrollbar-thin scrollbar-track-transparent scrollbar-thumb-white scrollbar-thumb-rounded-full scrollbar-track-rounded-full">
-          {children}
-        </div>
+      <div className="relative mt-4 mx-auto border-2 rounded-2xl bg-gray-900 p-9 flex flex-col gap-2 max-h-[70%] max-w-[40%] z-0 overflow-y-scroll scrollbar-thin scrollbar-track-transparent scrollbar-thumb-white scrollbar-thumb-rounded-full scrollbar-track-rounded-full overflow-x-hidden">
+        {children}
         <button
-          className="absolute flex items-center justify-center p-2 font-bold border-2 border-white text-3xl z-40 rounded-2xl w-10 h-10 hover:text-gray-900 hover:bg-white delay-75 text-white -right-11 top-20"
+          className="absolute flex items-center justify-center p-2 font-bold text-3xl z-40 rounded-2xl w-10 h-10 hover:text-gray-500 delay-75 text-white top-0 -right-2"
           onClick={() => closeModal()}
         >
           <FontAwesomeIcon icon={faXmark} />
