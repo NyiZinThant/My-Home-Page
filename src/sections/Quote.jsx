@@ -3,24 +3,15 @@ import { fetchQuote } from '../libs/fetcher';
 
 export default function Quote() {
   const [quote, setQuote] = useState();
-  const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
-    if (!isLoading) {
-      return;
-    } else {
-      (async () => {
-        const newQuote = await fetchQuote();
-        setQuote(newQuote);
-        setIsLoading(false);
-        console.log('hello');
-      })();
-    }
+    (async () => {
+      const newQuote = await fetchQuote();
+      setQuote(newQuote);
+    })();
   }, []);
-
-  //   const quote = fetchQuote();
   return (
     <>
-      {isLoading ? (
+      {!quote ? (
         <div className="w-1/3 flex justify-center items-center gap-2">
           <span className="sr-only">Loading...</span>
           <div className="h-2 w-2 bg-white rounded-full animate-bounce [animation-delay:-0.3s]"></div>
