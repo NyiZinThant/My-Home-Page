@@ -20,8 +20,12 @@ export default function Quote() {
         </div>
       ) : (
         <div className="w-1/3 text-white text-center">
-          <p>{quote.content}</p>
-          <p>- {quote.author} -</p>
+          <p>
+            <q>{quote.content}</q>
+          </p>
+          <p>
+            <b>- {quote.author} -</b>
+          </p>
         </div>
       )}
     </>

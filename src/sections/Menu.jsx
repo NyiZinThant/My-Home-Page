@@ -17,6 +17,9 @@ export default function Menu() {
   const [isMOpen, setIsMOpen] = useState(false);
   const toggleModal = () => setIsMOpen(!isMOpen);
   const closeModal = () => setIsMOpen(false);
+  // chrome.bookmarks.getTree(function (bookmarksTreeNode) {
+  //   console.log('Bookmarks Tree: ', bookmarksTreeNode);
+  // });
   const [apps, setApps] = useState([
     {
       image: github,
